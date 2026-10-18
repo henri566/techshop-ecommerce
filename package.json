@@ -1,0 +1,20 @@
+{
+  "name": "techshop-ecommerce",
+  "version": "1.0.0",
+  "description": "Site e-commerce de démonstration SEO-optimized avec Node.js et Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "keywords": [
+    "ecommerce",
+    "seo",
+    "nodejs",
+    "portfolio"
+  ],
+  "author": "Henri Dev",
+  "license": "ISC"
+}
