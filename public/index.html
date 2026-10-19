@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <!-- Naviguateurs du carrousel -->
+            <!-- Contrôles du carrousel -->
             <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
 
@@ -91,7 +91,7 @@
         <div class="container search-flex">
             <div class="apple-search-box">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="search-input" placeholder="Rechercher par modèle, mémoire, iOS ou version..." aria-label="Rechercher un produit">
+                <input type="text" id="search-input" placeholder="Rechercher par modèle, mémoire, iOS ou version..." aria-label="Rechercher">
             </div>
 
             <div class="apple-select-wrapper">
@@ -120,17 +120,11 @@
             <h2 class="section-title">Questions fréquentes (FAQ)</h2>
             <div class="faq-list">
                 <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Quels sont les délais et frais de livraison ?</span>
-                        <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </summary>
+                    <summary class="faq-question">Quels sont les délais et frais de livraison ?</summary>
                     <p class="faq-answer">La livraison est offerte dès 50 € d'achat. Expédition sous 24h à 48h ouvrées avec suivi.</p>
                 </details>
                 <details class="faq-item">
-                    <summary class="faq-question">
-                        <span>Comment régler via Mobile Money, PayPal ou Virement ?</span>
-                        <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </summary>
+                    <summary class="faq-question">Comment régler via Mobile Money, PayPal ou Virement ?</summary>
                     <p class="faq-answer">Choisissez simplement Mobile Money (Mvola, Orange Money, Airtel Money), Carte/PayPal ou Virement lors de la validation dans votre sac.</p>
                 </details>
             </div>
@@ -155,26 +149,22 @@
                 </div>
             </div>
 
-            <!-- Formulaire d'avis -->
             <div class="add-review-box">
                 <h3 class="add-review-title">Laissez votre avis</h3>
-                <form id="review-form">
+                <form id="review-form" onsubmit="event.preventDefault(); alert('Merci pour votre avis !');">
                     <div class="input-row">
                         <div class="input-group">
-                            <label for="review-author-input">Votre nom :</label>
-                            <input type="text" id="review-author-input" class="pay-input" placeholder="Ex: Lucas M." required>
+                            <label>Votre nom :</label>
+                            <input type="text" class="pay-input" placeholder="Ex: Lucas M." required>
                         </div>
                         <div class="input-group">
-                            <label for="review-rating-input">Note :</label>
-                            <select id="review-rating-input" class="pay-input">
-                                <option value="5">5 / 5 — Excellent</option>
-                                <option value="4">4 / 5 — Très bon</option>
-                            </select>
+                            <label>Note :</label>
+                            <select class="pay-input"><option value="5">5 / 5 — Excellent</option></select>
                         </div>
                     </div>
                     <div class="input-group">
-                        <label for="review-comment-input">Votre commentaire :</label>
-                        <textarea id="review-comment-input" class="pay-input textarea-input" rows="3" placeholder="Partagez votre expérience..." required></textarea>
+                        <label>Votre commentaire :</label>
+                        <textarea class="pay-input textarea-input" rows="3" placeholder="Partagez votre expérience..." required></textarea>
                     </div>
                     <button type="submit" class="btn-apple-primary">Publier mon avis</button>
                 </form>
@@ -182,19 +172,16 @@
         </div>
     </section>
 
-    <!-- Chatbot -->
+    <!-- Chatbot Widget -->
     <div class="chatbot-container">
         <button class="chatbot-toggle-btn" id="chatbot-toggle" aria-label="Support Chat">
-            <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg>
-            <svg class="icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg>
         </button>
 
         <div class="chatbot-window hidden" id="chatbot-window">
             <div class="chatbot-header">
                 <div class="bot-info">
-                    <div class="bot-avatar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle></svg>
-                    </div>
+                    <div class="bot-avatar">🤖</div>
                     <div>
                         <h4>Assistant IA TechStore</h4>
                         <span class="online-status">En ligne</span>
@@ -207,9 +194,7 @@
             </div>
             <form class="chatbot-input-area" id="chat-form">
                 <input type="text" id="chat-input" placeholder="Posez votre question..." required>
-                <button type="submit" class="btn-send-chat">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </button>
+                <button type="submit" class="btn-send-chat">➔</button>
             </form>
         </div>
     </div>
@@ -225,8 +210,8 @@
                 <p class="empty-msg">Votre sac est vide.</p>
             </div>
             
-            <div class="payment-options-box" id="payment-selection">
-                <label class="payment-label">Choisissez votre mode de paiement :</label>
+            <div class="payment-options-box">
+                <label class="payment-label">Mode de paiement :</label>
                 <div class="payment-grid">
                     <label class="payment-card">
                         <input type="radio" name="payment_method" value="mobile_money" checked onclick="togglePaymentForm('mobile_money')">
@@ -236,36 +221,19 @@
                         <input type="radio" name="payment_method" value="card_paypal" onclick="togglePaymentForm('card_paypal')">
                         <span>Carte Bancaire / PayPal</span>
                     </label>
-                    <label class="payment-card">
-                        <input type="radio" name="payment_method" value="virement" onclick="togglePaymentForm('virement')">
-                        <span>Virement Bancaire</span>
-                    </label>
                 </div>
 
                 <div class="pay-form" id="form-mobile_money">
                     <div class="input-group">
-                        <label for="mm-operator">Opérateur :</label>
-                        <select id="mm-operator" class="pay-input">
-                            <option value="Mvola">Mvola (Telma)</option>
-                            <option value="Orange Money">Orange Money</option>
-                            <option value="Airtel Money">Airtel Money</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="mm-phone">Numéro de téléphone :</label>
-                        <input type="tel" id="mm-phone" class="pay-input" placeholder="+261 3X XX XXX XX">
+                        <label>Numéro de téléphone :</label>
+                        <input type="tel" class="pay-input" placeholder="+261 3X XX XXX XX">
                     </div>
                 </div>
-
                 <div class="pay-form hidden" id="form-card_paypal">
                     <div class="input-group">
-                        <label for="card-num">Numéro de carte bancaire :</label>
-                        <input type="text" id="card-num" class="pay-input" placeholder="4532 •••• •••• 8892">
+                        <label>Numéro de carte :</label>
+                        <input type="text" class="pay-input" placeholder="4532 •••• •••• 8892">
                     </div>
-                </div>
-
-                <div class="pay-form hidden" id="form-virement">
-                    <p style="font-size: 0.85rem;"><strong>IBAN :</strong> MG46 0000 1000 2345 6789 0123 88</p>
                 </div>
             </div>
 
@@ -282,7 +250,7 @@
             <div class="footer-contact">
                 <h4>Contactez-nous</h4>
                 <p>📧 Email : <a href="mailto:clhenri153@gmail.com">clhenri153@gmail.com</a></p>
-                <p>📞 WhatsApp / Tel : <a href="https://wa.me/261389983371" target="_blank">+261 38 99 833 71</a></p>
+                <p>📞 WhatsApp : <a href="https://wa.me/261389983371" target="_blank">+261 38 99 833 71</a></p>
             </div>
             <p>Copyright &copy; 2026 TechStore Inc. Tous droits réservés.</p>
         </div>
@@ -294,12 +262,10 @@
         let cart = [];
         let currentSlide = 0;
 
-        // Logique Carrousel Hero
         function showSlide(index) {
             const slides = document.querySelectorAll('.carousel-slide');
             const dots = document.querySelectorAll('.dot');
             if (slides.length === 0) return;
-            
             if (index >= slides.length) currentSlide = 0;
             if (index < 0) currentSlide = slides.length - 1;
 
@@ -307,34 +273,20 @@
                 slide.classList.remove('active');
                 if (dots[i]) dots[i].classList.remove('active');
             });
-
             slides[currentSlide].classList.add('active');
             if (dots[currentSlide]) dots[currentSlide].classList.add('active');
         }
 
-        function moveSlide(step) {
-            currentSlide += step;
-            showSlide(currentSlide);
-        }
-
-        function setSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-
-        setInterval(() => {
-            currentSlide++;
-            showSlide(currentSlide);
-        }, 5000);
+        function moveSlide(step) { currentSlide += step; showSlide(currentSlide); }
+        function setSlide(index) { currentSlide = index; showSlide(currentSlide); }
+        setInterval(() => { currentSlide++; showSlide(currentSlide); }, 5000);
 
         async function fetchProducts() {
             try {
                 const response = await fetch('/api/products');
                 allProducts = await response.json();
                 applyFilters();
-            } catch (error) {
-                console.error("Erreur de chargement des produits:", error);
-            }
+            } catch (error) { console.error("Erreur de chargement des produits:", error); }
         }
 
         function filterByCategory(cat, elem) {
@@ -421,100 +373,66 @@
 
         function togglePaymentForm(type) {
             document.querySelectorAll('.pay-form').forEach(form => form.classList.add('hidden'));
-            const selectedForm = document.getElementById(`form-${type}`);
-            if (selectedForm) selectedForm.classList.remove('hidden');
+            document.getElementById(`form-${type}`).classList.remove('hidden');
         }
 
         // Chatbot
         const chatToggleBtn = document.getElementById('chatbot-toggle');
         const chatWindow = document.getElementById('chatbot-window');
-        const closeChatBtn = document.getElementById('close-chat');
-        const chatForm = document.getElementById('chat-form');
-
         chatToggleBtn.addEventListener('click', () => chatWindow.classList.toggle('hidden'));
-        closeChatBtn.addEventListener('click', () => chatWindow.classList.add('hidden'));
+        document.getElementById('close-chat').addEventListener('click', () => chatWindow.classList.add('hidden'));
 
-        chatForm.addEventListener('submit', async (e) => {
+        document.getElementById('chat-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const text = document.getElementById('chat-input').value.trim();
             if (!text) return;
-
-            appendChatMessage(text, 'user-msg');
+            appendMsg(text, 'user-msg');
             document.getElementById('chat-input').value = '';
-
             try {
-                const res = await fetch('/api/chatbot', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
-                });
+                const res = await fetch('/api/chatbot', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ message: text }) });
                 const data = await res.json();
-                setTimeout(() => appendChatMessage(data.response, 'bot-msg'), 300);
-            } catch (err) {
-                appendChatMessage("Erreur de connexion avec l'IA.", 'bot-msg');
+                setTimeout(() => appendMsg(data.response, 'bot-msg'), 300);
+            } catch(e) {
+                appendMsg("Erreur de connexion.", 'bot-msg');
             }
         });
 
-        function appendChatMessage(msg, className) {
+        function appendMsg(msg, cls) {
             const div = document.createElement('div');
-            div.className = `chat-msg ${className}`;
+            div.className = `chat-msg ${cls}`;
             div.innerText = msg;
             const msgs = document.getElementById('chat-messages');
             msgs.appendChild(div);
             msgs.scrollTop = msgs.scrollHeight;
         }
 
-        // Panier
-        function addToCart(productId) {
-            const product = allProducts.find(p => p.id === productId);
-            if (!product) return;
-
-            const existingItem = cart.find(item => item.id === productId);
-            if (existingItem) existingItem.quantity += 1;
-            else cart.push({ ...product, quantity: 1 });
+        function addToCart(id) {
+            const product = allProducts.find(p => p.id === id);
+            const item = cart.find(i => i.id === id);
+            if (item) item.quantity++; else cart.push({...product, quantity: 1});
             updateCartUI();
         }
 
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
             updateCartUI();
         }
 
         function updateCartUI() {
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').innerText = totalCount;
-
-            const cartContainer = document.getElementById('cart-items-container');
-            const totalPriceElement = document.getElementById('cart-total-price');
-
-            if (cart.length === 0) {
-                cartContainer.innerHTML = '<p class="empty-msg">Votre sac est vide.</p>';
-                totalPriceElement.innerText = '0,00 €';
-                return;
-            }
-
+            document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.quantity, 0);
+            const container = document.getElementById('cart-items-container');
+            if (cart.length === 0) { container.innerHTML = '<p class="empty-msg">Votre sac est vide.</p>'; document.getElementById('cart-total-price').innerText = '0,00 €'; return; }
             let total = 0;
-            cartContainer.innerHTML = cart.map(item => {
-                const itemTotal = parseFloat(item.price) * item.quantity;
-                total += itemTotal;
-                return `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.title}">
-                        <div class="cart-item-details">
-                            <h4>${item.title}</h4>
-                            <p>${item.price} € x ${item.quantity}</p>
-                        </div>
-                        <button class="btn-remove" onclick="removeFromCart(${item.id})">Supprimer</button>
-                    </div>
-                `;
+            container.innerHTML = cart.map(item => {
+                total += item.price * item.quantity;
+                return `<div class="cart-item"><img src="${item.image}"><div class="cart-item-details"><h4>${item.title}</h4><p>${item.price} € x ${item.quantity}</p></div><button class="btn-remove" onclick="removeFromCart(${item.id})">Supprimer</button></div>`;
             }).join('');
-
-            totalPriceElement.innerText = `${total.toFixed(2)} €`;
+            document.getElementById('cart-total-price').innerText = total.toFixed(2) + ' €';
         }
 
         function checkout() {
             if (cart.length === 0) return alert("Votre sac est vide !");
-            alert("Commande transmise avec succès !");
+            alert("Commande validée avec succès !");
             cart = [];
             updateCartUI();
             document.getElementById('cart-modal').classList.remove('active');

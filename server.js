@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Catalog complet de 100 produits avec images distinctes, OS, mémoire et couleurs
+// Catalogue complet de 100 produits avec images garanties sans erreur
 const products = [
     // Consoles (1 - 12)
     {
@@ -77,7 +77,7 @@ const products = [
         os: "Nintendo Horizon",
         storage: "32 GB Flash",
         ram: "4 GB LPDDR4",
-        colors: [{ name: "Bleu Lagon", hex: "#00a2e8" }, { name: "Turquoise", hex: "#00c3b6" }],
+        colors: [{ name: "Bleu Lagon", hex: "#00a2e8" }],
         description: "Console portable compacte et légère, dédiée au jeu nomade avec commandes intégrées.",
         image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&auto=format&fit=crop"
     },
@@ -149,7 +149,7 @@ const products = [
         os: "PS5 OS v3.0",
         storage: "2 TB NVMe SSD",
         ram: "16 GB GDDR6",
-        colors: [{ name: "Gris Rétro PS1", hex: "#a0a0a0" }],
+        colors: [{ name: "Gris Rétro", hex: "#a0a0a0" }],
         description: "La plus puissante des consoles PlayStation avec Ray Tracing avancé et upscaling PSSR par IA.",
         image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&auto=format&fit=crop"
     },
@@ -175,7 +175,7 @@ const products = [
         os: "iOS 17",
         storage: "128 GB",
         ram: "6 GB RAM",
-        colors: [{ name: "Rose Poudré", hex: "#f8d7da" }, { name: "Noir Minuit", hex: "#1c1c1e" }],
+        colors: [{ name: "Rose Poudré", hex: "#f8d7da" }, { name: "Noir", hex: "#1c1c1e" }],
         description: "Dynamic Island, appareil photo principal 48 Mpx avec téléobjectif 2x et verre teinté dans la masse.",
         image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&auto=format&fit=crop"
     },
@@ -199,7 +199,7 @@ const products = [
         os: "Android 14 Stock",
         storage: "256 GB",
         ram: "12 GB RAM",
-        colors: [{ name: "Bleu Azur", hex: "#3b82f6" }, { name: "Noir Volcanique", hex: "#18181b" }],
+        colors: [{ name: "Bleu Azur", hex: "#3b82f6" }],
         description: "Processeur Google Tensor G3, écran Super Actua ultra-lumineux et fonctionnalités photo par IA.",
         image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop"
     },
@@ -232,7 +232,7 @@ const products = [
         title: "iPhone 14 Plus 128GB - Minuit",
         category: "Téléphones",
         price: 869.99,
-        os: "iOS 16 (Upgradable iOS 17)",
+        os: "iOS 16 (Upgradable)",
         storage: "128 GB",
         ram: "6 GB RAM",
         colors: [{ name: "Minuit", hex: "#1c2024" }],
@@ -244,7 +244,7 @@ const products = [
         title: "Samsung Galaxy Z Fold 5 512GB",
         category: "Téléphones",
         price: 1899.99,
-        os: "Android 13 (One UI 5.1.1)",
+        os: "Android 13 (One UI)",
         storage: "512 GB",
         ram: "12 GB RAM",
         colors: [{ name: "Bleu Noir", hex: "#111827" }],
@@ -256,7 +256,7 @@ const products = [
         title: "Samsung Galaxy Z Flip 5 256GB Mint",
         category: "Téléphones",
         price: 1199.99,
-        os: "Android 13 (One UI 5.1.1)",
+        os: "Android 13 (One UI)",
         storage: "256 GB",
         ram: "8 GB RAM",
         colors: [{ name: "Menthe", hex: "#d1e7dd" }],
@@ -280,7 +280,7 @@ const products = [
         title: "Nothing Phone (2) 256GB Dark Gray",
         category: "Téléphones",
         price: 679.99,
-        os: "Nothing OS 2.0 (Android 13)",
+        os: "Nothing OS 2.0",
         storage: "256 GB",
         ram: "12 GB RAM",
         colors: [{ name: "Gris Sombre", hex: "#2d3748" }],
@@ -292,7 +292,7 @@ const products = [
         title: "iPhone 13 128GB - Bleu",
         category: "Téléphones",
         price: 649.99,
-        os: "iOS 15 (Upgradable iOS 17)",
+        os: "iOS 15",
         storage: "128 GB",
         ram: "4 GB RAM",
         colors: [{ name: "Bleu Intense", hex: "#1e3a8a" }],
@@ -451,7 +451,7 @@ const products = [
         category: "Mac & PC",
         price: 4999.99,
         os: "Windows 11 Pro",
-        storage: "4 TB SSD (RAID)",
+        storage: "4 TB SSD",
         ram: "128 GB DDR5",
         colors: [{ name: "Core Black", hex: "#000000" }],
         description: "Remplacement de PC de bureau ultime avec touchpad Haptique RGB et 4 emplacements SSD M.2.",
@@ -477,7 +477,7 @@ const products = [
         os: "Windows 11 Home",
         storage: "2 TB NVMe SSD",
         ram: "32 GB DDR5",
-        colors: [{ name: "Boîtier Verre ARGB", hex: "#ffffff" }],
+        colors: [{ name: "Boîtier Verre", hex: "#ffffff" }],
         description: "Unité centrale Gamer avec processeur Ryzen 7 7800X3D, boîtier en verre trempé et refroidissement liquide ARGB.",
         image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&auto=format&fit=crop"
     },
@@ -731,7 +731,7 @@ const products = [
     }
 ];
 
-// Génération unique garantie sans répétitions pour compléter les 100 produits
+// Remplissage automatique garanti sans erreur pour atteindre exactement 100 produits uniques
 const categoryImages = {
     "Consoles": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&auto=format&fit=crop",
     "Téléphones": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop",
