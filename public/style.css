@@ -1,13 +1,15 @@
-/* Styling Apple Store Ultra-Pro & Modern Typography */
+/* ==========================================================================
+   STYLE GLOBAL & TYPOGRAPHIE
+   ========================================================================== */
 :root {
-    --apple-bg: #f5f5f7;
-    --apple-card-bg: #ffffff;
-    --apple-text: #111827;
-    --apple-subtext: #6b7280;
-    --apple-blue: #0066cc;
-    --apple-blue-hover: #0077ed;
-    --apple-border: rgba(0, 0, 0, 0.08);
-    --radius-lg: 20px;
+    --shopify-bg: #f6f6f7;
+    --shopify-card-bg: #ffffff;
+    --shopify-text: #202223;
+    --shopify-subtext: #6d7175;
+    --shopify-green: #008060;
+    --shopify-green-hover: #006e52;
+    --shopify-border: #e1e3e5;
+    --radius-md: 12px;
     --radius-pill: 980px;
 }
 
@@ -19,8 +21,8 @@
 
 body {
     font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--apple-bg);
-    color: var(--apple-text);
+    background-color: var(--shopify-bg);
+    color: var(--shopify-text);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
@@ -31,15 +33,15 @@ body {
     padding: 0 20px;
 }
 
-/* Navigation Apple */
+/* Navigation */
 .apple-nav {
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: saturate(180%) blur(20px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--apple-border);
-    height: 58px;
+    border-bottom: 1px solid var(--shopify-border);
+    height: 60px;
 }
 
 .nav-container {
@@ -53,10 +55,10 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--apple-text);
+    color: var(--shopify-text);
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     letter-spacing: -0.02em;
 }
 
@@ -70,53 +72,53 @@ body {
 .nav-tab {
     background: transparent;
     border: none;
-    padding: 6px 16px;
+    padding: 7px 18px;
     border-radius: var(--radius-pill);
-    color: var(--apple-subtext);
+    color: var(--shopify-subtext);
     font-size: 0.88rem;
     font-weight: 600;
     font-family: inherit;
     cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease;
     white-space: nowrap;
 }
 
 .nav-tab:hover {
-    color: var(--apple-text);
+    color: var(--shopify-text);
     background: rgba(0, 0, 0, 0.05);
 }
 
 .nav-tab.active {
-    background: var(--apple-text);
+    background: var(--shopify-text);
     color: white;
 }
 
 .bag-btn {
-    background: rgba(0, 0, 0, 0.04);
-    border: 1px solid var(--apple-border);
-    padding: 7px 16px;
+    background: #ffffff;
+    border: 1px solid var(--shopify-border);
+    padding: 8px 18px;
     border-radius: var(--radius-pill);
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
-    color: var(--apple-text);
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+    gap: 8px;
+    color: var(--shopify-text);
+    transition: all 0.2s ease;
 }
 
 .bag-btn:hover {
-    transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.08);
+    border-color: var(--shopify-text);
+    background: #ffffff;
 }
 
 .bag-badge {
-    background: var(--apple-blue);
+    background: var(--shopify-green);
     color: white;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     border-radius: 50%;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,15 +130,15 @@ body {
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 800;
-    color: #9ca3af;
+    color: #8c9196;
     letter-spacing: -0.03em;
     line-height: 1.15;
 }
 
-.hero-title span { color: var(--apple-text); }
-.hero-subtitle { font-size: 1.15rem; color: var(--apple-subtext); margin-top: 10px; font-weight: 400; }
+.hero-title span { color: var(--shopify-text); }
+.hero-subtitle { font-size: 1.1rem; color: var(--shopify-subtext); margin-top: 10px; font-weight: 400; }
 
 /* Recherche & Tri */
 .search-section { margin-bottom: 35px; }
@@ -146,18 +148,17 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--apple-card-bg);
+    background: var(--shopify-card-bg);
     padding: 12px 22px;
     border-radius: var(--radius-pill);
-    border: 1px solid var(--apple-border);
+    border: 1px solid var(--shopify-border);
     flex: 1;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .apple-search-box:focus-within {
-    box-shadow: 0 4px 20px rgba(0, 102, 204, 0.15);
-    border-color: var(--apple-blue);
+    border-color: var(--shopify-green);
+    box-shadow: 0 0 0 2px rgba(0, 128, 96, 0.2);
 }
 
 .apple-search-box input {
@@ -167,14 +168,14 @@ body {
     font-size: 0.95rem;
     width: 100%;
     font-family: inherit;
-    color: var(--apple-text);
+    color: var(--shopify-text);
 }
 
 .apple-select-wrapper {
-    background: var(--apple-card-bg);
+    background: var(--shopify-card-bg);
     border-radius: var(--radius-pill);
     padding: 2px 16px;
-    border: 1px solid var(--apple-border);
+    border: 1px solid var(--shopify-border);
 }
 
 .apple-select {
@@ -184,87 +185,100 @@ body {
     font-size: 0.9rem;
     font-family: inherit;
     font-weight: 600;
-    color: var(--apple-text);
+    color: var(--shopify-text);
     cursor: pointer;
     outline: none;
 }
 
-/* Grille de Produits & Transitions Fluides */
+/* ==========================================================================
+   GRILLE PRODUITS STYLE SHOPIFY THEMES
+   ========================================================================== */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
     margin-bottom: 60px;
 }
 
 .apple-card {
-    background: var(--apple-card-bg);
-    border-radius: var(--radius-lg);
+    background: #ffffff;
+    border: 1px solid var(--shopify-border);
+    border-radius: var(--radius-md);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     opacity: 0;
-    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeInUp 0.5s ease forwards;
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Effet au survol style Shopify Themes */
 .apple-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    border-color: #b6b9bc;
 }
 
 .card-img-box {
     width: 100%;
-    height: 210px;
+    height: 230px;
     overflow: hidden;
-    background: #ffffff;
+    background-color: #f6f6f7;
+    position: relative;
 }
 
 .card-img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .apple-card:hover .card-img-box img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .card-body {
-    padding: 22px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     flex: 1;
+    background: #ffffff;
 }
 
 .card-category {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
-    font-weight: 800;
-    color: var(--apple-blue);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
+    color: var(--shopify-subtext);
     margin-bottom: 6px;
 }
 
 .card-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--apple-text);
+    color: var(--shopify-text);
     margin-bottom: 8px;
-    line-height: 1.3;
+    line-height: 1.35;
+    transition: color 0.2s ease;
+}
+
+.apple-card:hover .card-title {
+    color: var(--shopify-green);
 }
 
 .card-desc {
     font-size: 0.88rem;
-    color: var(--apple-subtext);
+    color: var(--shopify-subtext);
     margin-bottom: 20px;
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -277,36 +291,42 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #f1f2f3;
 }
 
-.card-price { font-size: 1.25rem; font-weight: 800; color: var(--apple-text); }
+.card-price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--shopify-text);
+}
 
 .btn-apple-buy {
-    background: var(--apple-blue);
-    color: white;
+    background: var(--shopify-green);
+    color: #ffffff;
     border: none;
-    padding: 9px 20px;
-    border-radius: var(--radius-pill);
+    padding: 10px 20px;
+    border-radius: 8px;
     font-size: 0.88rem;
     font-weight: 600;
     font-family: inherit;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.22);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .btn-apple-buy:hover {
-    background: var(--apple-blue-hover);
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 102, 204, 0.35);
+    background: var(--shopify-green-hover);
+    transform: scale(1.02);
 }
 
-.btn-apple-buy:active { transform: scale(0.95); }
+.btn-apple-buy:active { transform: scale(0.98); }
 
-/* Section FAQ */
+/* ==========================================================================
+   SECTIONS FAQ, AVIS, MODALES ET FOOTER
+   ========================================================================== */
 .faq-section {
     padding: 50px 0;
-    border-top: 1px solid var(--apple-border);
+    border-top: 1px solid var(--shopify-border);
 }
 
 .section-title {
@@ -328,7 +348,7 @@ body {
     background: white;
     border-radius: 14px;
     padding: 16px 20px;
-    border: 1px solid var(--apple-border);
+    border: 1px solid var(--shopify-border);
     transition: box-shadow 0.2s ease;
 }
 
@@ -348,25 +368,19 @@ body {
 
 .faq-question::-webkit-details-marker { display: none; }
 
-.faq-arrow {
-    transition: transform 0.3s ease;
-}
-
-.faq-item[open] .faq-arrow {
-    transform: rotate(180deg);
-}
+.faq-arrow { transition: transform 0.3s ease; }
+.faq-item[open] .faq-arrow { transform: rotate(180deg); }
 
 .faq-answer {
     margin-top: 12px;
     font-size: 0.9rem;
-    color: var(--apple-subtext);
+    color: var(--shopify-subtext);
     line-height: 1.5;
 }
 
-/* Section Avis Clients */
 .reviews-section {
     padding: 60px 0 80px;
-    border-top: 1px solid var(--apple-border);
+    border-top: 1px solid var(--shopify-border);
 }
 
 .reviews-grid {
@@ -379,9 +393,8 @@ body {
 .review-card {
     background: white;
     padding: 22px;
-    border-radius: 18px;
-    border: 1px solid var(--apple-border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    border-radius: 14px;
+    border: 1px solid var(--shopify-border);
 }
 
 .review-header {
@@ -401,7 +414,7 @@ body {
 .review-name {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--apple-text);
+    color: var(--shopify-text);
 }
 
 .review-stars {
@@ -418,7 +431,7 @@ body {
 
 .review-text {
     font-size: 0.9rem;
-    color: var(--apple-text);
+    color: var(--shopify-text);
     margin-bottom: 12px;
     font-style: italic;
     line-height: 1.45;
@@ -427,15 +440,14 @@ body {
 .review-date {
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--apple-subtext);
+    color: var(--shopify-subtext);
 }
 
-/* Formulaire Ajouter un avis */
 .add-review-box {
     background: white;
     padding: 24px;
-    border-radius: 18px;
-    border: 1px solid var(--apple-border);
+    border-radius: 14px;
+    border: 1px solid var(--shopify-border);
     max-width: 700px;
     margin: 0 auto;
 }
@@ -446,11 +458,9 @@ body {
     margin-bottom: 16px;
 }
 
-.textarea-input {
-    resize: vertical;
-}
+.textarea-input { resize: vertical; }
 
-/* WIDGET CHATBOT IA AVEC ROBOT AVATAR */
+/* Chatbot Widget */
 .chatbot-container {
     position: fixed;
     bottom: 25px;
@@ -462,14 +472,14 @@ body {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--apple-text);
+    background: var(--shopify-green);
     color: white;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -482,21 +492,15 @@ body {
     width: 350px;
     height: 450px;
     background: white;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .chatbot-header {
-    background: var(--apple-text);
+    background: var(--shopify-text);
     color: white;
     padding: 14px 18px;
     display: flex;
@@ -507,7 +511,7 @@ body {
 .bot-info { display: flex; align-items: center; gap: 10px; }
 
 .bot-avatar { 
-    background: var(--apple-blue); 
+    background: var(--shopify-green); 
     border-radius: 50%; 
     width: 32px; 
     height: 32px; 
@@ -538,13 +542,13 @@ body {
     line-height: 1.4;
 }
 
-.bot-msg { background: white; border: 1px solid var(--apple-border); align-self: flex-start; color: var(--apple-text); }
-.user-msg { background: var(--apple-blue); color: white; align-self: flex-end; }
+.bot-msg { background: white; border: 1px solid var(--shopify-border); align-self: flex-start; color: var(--shopify-text); }
+.user-msg { background: var(--shopify-green); color: white; align-self: flex-end; }
 
 .chatbot-input-area {
     display: flex;
     padding: 10px;
-    border-top: 1px solid var(--apple-border);
+    border-top: 1px solid var(--shopify-border);
     background: white;
 }
 
@@ -558,7 +562,7 @@ body {
 }
 
 .btn-send-chat {
-    background: var(--apple-blue);
+    background: var(--shopify-green);
     color: white;
     border: none;
     width: 36px;
@@ -570,7 +574,7 @@ body {
     justify-content: center;
 }
 
-/* Modales & Sélection de Paiement avec Formulaires */
+/* Modal Panier */
 .modal-backdrop {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -580,12 +584,12 @@ body {
 }
 
 .modal-backdrop.active { opacity: 1; pointer-events: auto; }
-.modal-content { background: white; border-radius: var(--radius-lg); width: 90%; max-width: 520px; padding: 25px; }
-.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--apple-border); padding-bottom: 12px; }
+.modal-content { background: white; border-radius: 16px; width: 90%; max-width: 520px; padding: 25px; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--shopify-border); padding-bottom: 12px; }
 .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 .modal-body { padding: 15px 0; max-height: 200px; overflow-y: auto; }
 
-.cart-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--apple-border); padding-bottom: 10px; }
+.cart-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--shopify-border); padding-bottom: 10px; }
 .cart-item img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; }
 .cart-item-details { flex: 1; }
 .btn-remove { background: #ef4444; color: white; border: none; padding: 4px 10px; border-radius: var(--radius-pill); cursor: pointer; font-size: 0.78rem; }
@@ -594,14 +598,14 @@ body {
     margin: 15px 0;
     padding: 14px;
     background: #f8fafc;
-    border-radius: 14px;
-    border: 1px solid var(--apple-border);
+    border-radius: 10px;
+    border: 1px solid var(--shopify-border);
 }
 
 .payment-label {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--apple-text);
+    color: var(--shopify-text);
     margin-bottom: 10px;
     display: block;
 }
@@ -619,8 +623,8 @@ body {
     gap: 12px;
     padding: 10px 14px;
     background: white;
-    border: 1px solid var(--apple-border);
-    border-radius: 10px;
+    border: 1px solid var(--shopify-border);
+    border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
@@ -628,24 +632,16 @@ body {
 }
 
 .payment-card:hover {
-    background: rgba(0, 102, 204, 0.04);
-    border-color: var(--apple-blue);
+    border-color: var(--shopify-green);
 }
 
-.payment-card input[type="radio"] {
-    accent-color: var(--apple-blue);
-}
-
-.pay-icon {
-    stroke: var(--apple-text);
-    flex-shrink: 0;
-}
+.payment-card input[type="radio"] { accent-color: var(--shopify-green); }
 
 .pay-form {
     background: white;
     padding: 12px;
-    border-radius: 10px;
-    border: 1px solid var(--apple-border);
+    border-radius: 8px;
+    border: 1px solid var(--shopify-border);
     margin-top: 10px;
 }
 
@@ -659,51 +655,33 @@ body {
 .input-group label {
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--apple-subtext);
+    color: var(--shopify-subtext);
 }
 
 .pay-input {
     padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--apple-border);
+    border-radius: 6px;
+    border: 1px solid var(--shopify-border);
     font-size: 0.85rem;
     outline: none;
     font-family: inherit;
 }
 
-.pay-input:focus {
-    border-color: var(--apple-blue);
-}
+.pay-input:focus { border-color: var(--shopify-green); }
 
-.input-row {
-    display: flex;
-    gap: 10px;
-}
-
+.input-row { display: flex; gap: 10px; }
 .input-row .input-group { flex: 1; }
 
-.bank-details p {
-    font-size: 0.82rem;
-    margin: 4px 0;
-}
-
-.bank-note {
-    font-size: 0.75rem;
-    color: var(--apple-subtext);
-    font-style: italic;
-    margin-top: 6px !important;
-}
-
-.modal-footer { border-top: 1px solid var(--apple-border); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+.modal-footer { border-top: 1px solid var(--shopify-border); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; }
 .cart-total { font-weight: 700; font-size: 1.1rem; }
-.btn-apple-primary { background: var(--apple-blue); color: white; border: none; padding: 10px 22px; border-radius: var(--radius-pill); font-weight: 600; cursor: pointer; }
+.btn-apple-primary { background: var(--shopify-green); color: white; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 600; cursor: pointer; }
 
 .no-results { text-align: center; padding: 50px 20px; }
-.btn-apple-secondary { background: white; border: 1px solid var(--apple-border); padding: 8px 18px; border-radius: var(--radius-pill); cursor: pointer; }
+.btn-apple-secondary { background: white; border: 1px solid var(--shopify-border); padding: 8px 18px; border-radius: var(--radius-pill); cursor: pointer; }
 .hidden { display: none !important; }
 
-/* Footer Apple & Coordonnées de Contact */
-.apple-footer { background: #f5f5f7; border-top: 1px solid var(--apple-border); padding: 30px 0; font-size: 0.85rem; color: var(--apple-subtext); }
+/* Footer */
+.apple-footer { background: #ffffff; border-top: 1px solid var(--shopify-border); padding: 35px 0; font-size: 0.85rem; color: var(--shopify-subtext); }
 
 .footer-content {
     display: flex;
@@ -713,29 +691,13 @@ body {
     text-align: center;
 }
 
-.footer-contact h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--apple-text);
-}
-
-.footer-contact p {
-    margin: 4px 0;
-}
-
-.footer-contact a {
-    color: var(--apple-blue);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.footer-contact a:hover {
-    text-decoration: underline;
-}
+.footer-contact h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--shopify-text); }
+.footer-contact p { margin: 4px 0; }
+.footer-contact a { color: var(--shopify-green); text-decoration: none; font-weight: 600; }
+.footer-contact a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
     .hero-title { font-size: 2.2rem; }
-    .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+    .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
     .chatbot-window { width: 300px; right: -10px; }
 }
