@@ -298,6 +298,8 @@
         function showSlide(index) {
             const slides = document.querySelectorAll('.carousel-slide');
             const dots = document.querySelectorAll('.dot');
+            if (slides.length === 0) return;
+            
             if (index >= slides.length) currentSlide = 0;
             if (index < 0) currentSlide = slides.length - 1;
 
@@ -320,7 +322,6 @@
             showSlide(currentSlide);
         }
 
-        // Auto-Play Carrousel toutes les 5s
         setInterval(() => {
             currentSlide++;
             showSlide(currentSlide);
@@ -375,7 +376,6 @@
 
             noResultsElem.classList.add('hidden');
             container.innerHTML = products.map((product, index) => {
-                // Génération des couleurs sous forme de pastilles visuelles
                 const colorsHTML = product.colors ? product.colors.map(c => `
                     <span class="color-dot" style="background-color: ${c.hex};" title="${c.name}"></span>
                 `).join('') : '';
@@ -392,7 +392,6 @@
                         </div>
                         <h3 class="card-title">${product.title}</h3>
                         
-                        <!-- Informations Techniques (Mémoire / OS) -->
                         <div class="specs-box">
                             ${product.storage ? `<span class="spec-tag">💾 ${product.storage}</span>` : ''}
                             ${product.ram ? `<span class="spec-tag">⚡ ${product.ram}</span>` : ''}
@@ -400,7 +399,6 @@
 
                         <p class="card-desc">${product.description}</p>
                         
-                        <!-- Pastilles de Couleurs -->
                         ${colorsHTML ? `<div class="color-selection"><span>Couleurs :</span> <div class="dots-row">${colorsHTML}</div></div>` : ''}
 
                         <div class="card-bottom">
