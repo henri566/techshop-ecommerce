@@ -124,21 +124,137 @@ body {
     justify-content: center;
 }
 
-/* Store Hero */
-.store-hero {
-    padding: 60px 0 30px;
+/* ==========================================================================
+   CARROUSEL HERO BANNIÈRE DÉFILANTE
+   ========================================================================== */
+.hero-carousel-section {
+    margin: 20px auto 35px;
+    max-width: 1240px;
+    padding: 0 20px;
 }
 
-.hero-title {
-    font-size: 2.8rem;
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    padding: 28px;
+    border-radius: 16px;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.slide-badge {
+    background: var(--shopify-green);
+    color: white;
+    font-size: 0.72rem;
     font-weight: 800;
-    color: #8c9196;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    display: inline-block;
+    margin-bottom: 8px;
 }
 
-.hero-title span { color: var(--shopify-text); }
-.hero-subtitle { font-size: 1.1rem; color: var(--shopify-subtext); margin-top: 10px; font-weight: 400; }
+.slide-caption h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--shopify-text);
+    margin-bottom: 6px;
+}
+
+.slide-caption p {
+    font-size: 0.92rem;
+    color: var(--shopify-subtext);
+    margin-bottom: 16px;
+}
+
+.btn-slide {
+    background: var(--shopify-text);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-slide:hover {
+    background: var(--shopify-green);
+}
+
+/* Flèches de contrôle */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-control:hover { background: white; }
+.carousel-control.prev { left: 15px; }
+.carousel-control.next { right: 15px; }
+
+/* Puces */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    right: 30px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    width: 24px;
+    border-radius: 10px;
+}
 
 /* Recherche & Tri */
 .search-section { margin-bottom: 35px; }
@@ -191,7 +307,7 @@ body {
 }
 
 /* ==========================================================================
-   GRILLE PRODUITS STYLE SHOPIFY THEMES
+   GRILLE PRODUITS AVEC SPECS ET COULEURS
    ========================================================================== */
 .product-grid {
     display: grid;
@@ -218,7 +334,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Effet au survol style Shopify Themes */
 .apple-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
@@ -252,17 +367,32 @@ body {
     background: #ffffff;
 }
 
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
 .card-category {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--shopify-subtext);
-    margin-bottom: 6px;
+}
+
+.card-os-badge {
+    background: #e4e5e7;
+    color: var(--shopify-text);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
 .card-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--shopify-text);
     margin-bottom: 8px;
@@ -274,16 +404,55 @@ body {
     color: var(--shopify-green);
 }
 
+.specs-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.spec-tag {
+    background: #f1f2f4;
+    color: #4a4d51;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
 .card-desc {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--shopify-subtext);
-    margin-bottom: 20px;
-    line-height: 1.5;
+    margin-bottom: 14px;
+    line-height: 1.45;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* Pastilles Couleurs */
+.color-selection {
+    font-size: 0.75rem;
+    color: var(--shopify-subtext);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.dots-row {
+    display: flex;
+    gap: 5px;
+}
+
+.color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.15);
+    display: inline-block;
 }
 
 .card-bottom {
@@ -321,357 +490,63 @@ body {
 
 .btn-apple-buy:active { transform: scale(0.98); }
 
-/* ==========================================================================
-   SECTIONS FAQ, AVIS, MODALES ET FOOTER
-   ========================================================================== */
-.faq-section {
-    padding: 50px 0;
-    border-top: 1px solid var(--shopify-border);
-}
-
-.section-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.faq-list {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.faq-item {
-    background: white;
-    border-radius: 14px;
-    padding: 16px 20px;
-    border: 1px solid var(--shopify-border);
-    transition: box-shadow 0.2s ease;
-}
-
-.faq-item[open] {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-}
-
-.faq-question {
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-}
-
+/* FAQ & Avis */
+.faq-section { padding: 50px 0; border-top: 1px solid var(--shopify-border); }
+.section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 30px; text-align: center; }
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: white; border-radius: 14px; padding: 16px 20px; border: 1px solid var(--shopify-border); }
+.faq-question { font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
 .faq-question::-webkit-details-marker { display: none; }
+.faq-answer { margin-top: 12px; font-size: 0.9rem; color: var(--shopify-subtext); }
 
-.faq-arrow { transition: transform 0.3s ease; }
-.faq-item[open] .faq-arrow { transform: rotate(180deg); }
+.reviews-section { padding: 60px 0 80px; border-top: 1px solid var(--shopify-border); }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-bottom: 40px; }
+.review-card { background: white; padding: 22px; border-radius: 14px; border: 1px solid var(--shopify-border); }
+.review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.review-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+.review-name { font-size: 0.95rem; font-weight: 700; }
+.review-stars { color: #f59e0b; }
+.review-text { font-size: 0.9rem; margin-bottom: 12px; font-style: italic; }
+.review-date { font-size: 0.75rem; color: var(--shopify-subtext); }
 
-.faq-answer {
-    margin-top: 12px;
-    font-size: 0.9rem;
-    color: var(--shopify-subtext);
-    line-height: 1.5;
-}
+.add-review-box { background: white; padding: 24px; border-radius: 14px; border: 1px solid var(--shopify-border); max-width: 700px; margin: 0 auto; }
+.add-review-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; }
 
-.reviews-section {
-    padding: 60px 0 80px;
-    border-top: 1px solid var(--shopify-border);
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
-    margin-bottom: 40px;
-}
-
-.review-card {
-    background: white;
-    padding: 22px;
-    border-radius: 14px;
-    border: 1px solid var(--shopify-border);
-}
-
-.review-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.review-avatar {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.review-name {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--shopify-text);
-}
-
-.review-stars {
-    display: flex;
-    gap: 2px;
-    margin-top: 2px;
-}
-
-.star-icon {
-    width: 14px;
-    height: 14px;
-    fill: #f59e0b;
-}
-
-.review-text {
-    font-size: 0.9rem;
-    color: var(--shopify-text);
-    margin-bottom: 12px;
-    font-style: italic;
-    line-height: 1.45;
-}
-
-.review-date {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--shopify-subtext);
-}
-
-.add-review-box {
-    background: white;
-    padding: 24px;
-    border-radius: 14px;
-    border: 1px solid var(--shopify-border);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.add-review-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-}
-
-.textarea-input { resize: vertical; }
-
-/* Chatbot Widget */
-.chatbot-container {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 2000;
-}
-
-.chatbot-toggle-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--shopify-green);
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.chatbot-toggle-btn:hover { transform: scale(1.1); }
-
-.chatbot-window {
-    position: absolute;
-    bottom: 72px;
-    right: 0;
-    width: 350px;
-    height: 450px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.chatbot-header {
-    background: var(--shopify-text);
-    color: white;
-    padding: 14px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Chatbot & Modales */
+.chatbot-container { position: fixed; bottom: 25px; right: 25px; z-index: 2000; }
+.chatbot-toggle-btn { width: 56px; height: 56px; border-radius: 50%; background: var(--shopify-green); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.18); }
+.chatbot-window { position: absolute; bottom: 72px; right: 0; width: 350px; height: 450px; background: white; border-radius: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; overflow: hidden; }
+.chatbot-header { background: var(--shopify-text); color: white; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; }
 .bot-info { display: flex; align-items: center; gap: 10px; }
-
-.bot-avatar { 
-    background: var(--shopify-green); 
-    border-radius: 50%; 
-    width: 32px; 
-    height: 32px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-}
-
-.bot-info h4 { font-size: 0.9rem; font-weight: 600; }
-.online-status { font-size: 0.72rem; color: #4ade80; }
-.close-chat { background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer; }
-
-.chatbot-messages {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: #f8fafc;
-}
-
-.chat-msg {
-    max-width: 82%;
-    padding: 10px 14px;
-    border-radius: 14px;
-    font-size: 0.85rem;
-    line-height: 1.4;
-}
-
-.bot-msg { background: white; border: 1px solid var(--shopify-border); align-self: flex-start; color: var(--shopify-text); }
+.bot-avatar { background: var(--shopify-green); border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #f8fafc; }
+.chat-msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 0.85rem; }
+.bot-msg { background: white; border: 1px solid var(--shopify-border); align-self: flex-start; }
 .user-msg { background: var(--shopify-green); color: white; align-self: flex-end; }
+.chatbot-input-area { display: flex; padding: 10px; border-top: 1px solid var(--shopify-border); background: white; }
+.chatbot-input-area input { flex: 1; border: none; outline: none; padding: 8px 12px; font-size: 0.88rem; }
+.btn-send-chat { background: var(--shopify-green); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-.chatbot-input-area {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid var(--shopify-border);
-    background: white;
-}
-
-.chatbot-input-area input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 8px 12px;
-    font-size: 0.88rem;
-    font-family: inherit;
-}
-
-.btn-send-chat {
-    background: var(--shopify-green);
-    color: white;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Modal Panier */
-.modal-backdrop {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 3000;
-}
-
+.modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 3000; }
 .modal-backdrop.active { opacity: 1; pointer-events: auto; }
 .modal-content { background: white; border-radius: 16px; width: 90%; max-width: 520px; padding: 25px; }
 .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--shopify-border); padding-bottom: 12px; }
 .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
 .modal-body { padding: 15px 0; max-height: 200px; overflow-y: auto; }
-
 .cart-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--shopify-border); padding-bottom: 10px; }
 .cart-item img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; }
 .cart-item-details { flex: 1; }
 .btn-remove { background: #ef4444; color: white; border: none; padding: 4px 10px; border-radius: var(--radius-pill); cursor: pointer; font-size: 0.78rem; }
-
-.payment-options-box {
-    margin: 15px 0;
-    padding: 14px;
-    background: #f8fafc;
-    border-radius: 10px;
-    border: 1px solid var(--shopify-border);
-}
-
-.payment-label {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--shopify-text);
-    margin-bottom: 10px;
-    display: block;
-}
-
-.payment-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 14px;
-}
-
-.payment-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 14px;
-    background: white;
-    border: 1px solid var(--shopify-border);
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.payment-card:hover {
-    border-color: var(--shopify-green);
-}
-
-.payment-card input[type="radio"] { accent-color: var(--shopify-green); }
-
-.pay-form {
-    background: white;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid var(--shopify-border);
-    margin-top: 10px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 8px;
-}
-
-.input-group label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--shopify-subtext);
-}
-
-.pay-input {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid var(--shopify-border);
-    font-size: 0.85rem;
-    outline: none;
-    font-family: inherit;
-}
-
-.pay-input:focus { border-color: var(--shopify-green); }
-
+.payment-options-box { margin: 15px 0; padding: 14px; background: #f8fafc; border-radius: 10px; border: 1px solid var(--shopify-border); }
+.payment-label { font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; display: block; }
+.payment-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.payment-card { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: white; border: 1px solid var(--shopify-border); border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.pay-form { background: white; padding: 12px; border-radius: 8px; border: 1px solid var(--shopify-border); margin-top: 10px; }
+.input-group { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+.input-group label { font-size: 0.78rem; font-weight: 600; color: var(--shopify-subtext); }
+.pay-input { padding: 8px 12px; border-radius: 6px; border: 1px solid var(--shopify-border); font-size: 0.85rem; outline: none; }
 .input-row { display: flex; gap: 10px; }
 .input-row .input-group { flex: 1; }
-
 .modal-footer { border-top: 1px solid var(--shopify-border); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; }
 .cart-total { font-weight: 700; font-size: 1.1rem; }
 .btn-apple-primary { background: var(--shopify-green); color: white; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 600; cursor: pointer; }
@@ -680,24 +555,16 @@ body {
 .btn-apple-secondary { background: white; border: 1px solid var(--shopify-border); padding: 8px 18px; border-radius: var(--radius-pill); cursor: pointer; }
 .hidden { display: none !important; }
 
-/* Footer */
 .apple-footer { background: #ffffff; border-top: 1px solid var(--shopify-border); padding: 35px 0; font-size: 0.85rem; color: var(--shopify-subtext); }
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    text-align: center;
-}
-
+.footer-content { display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center; }
 .footer-contact h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--shopify-text); }
 .footer-contact p { margin: 4px 0; }
 .footer-contact a { color: var(--shopify-green); text-decoration: none; font-weight: 600; }
-.footer-contact a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.2rem; }
+    .hero-carousel-section { padding: 0 10px; }
+    .carousel-container { height: 300px; }
+    .slide-caption { bottom: 20px; left: 20px; right: 20px; padding: 16px; }
+    .slide-caption h2 { font-size: 1.3rem; }
     .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-    .chatbot-window { width: 300px; right: -10px; }
 }

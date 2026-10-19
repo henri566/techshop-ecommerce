@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Découvrez le Store officiel High-Tech & Gaming : PS5, Nintendo Switch, iPhones, MacBooks, Tablettes et accessoires d'exception.">
-    <title>Store — Le meilleur du High-Tech & Gaming</title>
+    <title>TechStore — Le meilleur du High-Tech & Gaming</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <header class="apple-nav">
         <div class="container nav-container">
             <a href="/" class="nav-brand">
@@ -39,11 +39,50 @@
         </div>
     </header>
 
-    <!-- Store Hero -->
-    <section class="store-hero">
-        <div class="container">
-            <h1 class="hero-title">Store. <span>Le meilleur du High-Tech & Gaming.</span></h1>
-            <p class="hero-subtitle">Inspiré des plus beaux thèmes e-commerce modernes.</p>
+    <!-- CARROUSEL / BANNIÈRE IMMERSIVE (HERO SLIDER) -->
+    <section class="hero-carousel-section">
+        <div class="carousel-container" id="hero-slider">
+            <!-- Slide 1 -->
+            <div class="carousel-slide active">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1600&auto=format&fit=crop" alt="iPhone 15 Pro Max">
+                <div class="slide-caption">
+                    <span class="slide-badge">Nouveauté Apple</span>
+                    <h2>iPhone 15 Pro Max</h2>
+                    <p>Design en titane de qualité spatiale. Puce A17 Pro et iOS 17.</p>
+                    <button class="btn-slide" onclick="filterByCategory('Téléphones')">Découvrir les modèles</button>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=1600&auto=format&fit=crop" alt="PlayStation 5 Slim">
+                <div class="slide-caption">
+                    <span class="slide-badge">Gaming Next-Gen</span>
+                    <h2>PlayStation 5 Slim & Pro</h2>
+                    <p>Graphismes 4K, Ray Tracing et stockage SSD haute vitesse de 1 To / 2 To.</p>
+                    <button class="btn-slide" onclick="filterByCategory('Consoles')">Voir les consoles</button>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&auto=format&fit=crop" alt="MacBook Pro M3">
+                <div class="slide-caption">
+                    <span class="slide-badge">Puissance Brutale</span>
+                    <h2>MacBook Pro 16'' M3 Max</h2>
+                    <p>Jusqu'à 36 Go de mémoire unifiée et écran Liquid Retina XDR.</p>
+                    <button class="btn-slide" onclick="filterByCategory('Mac & PC')">Explorer la gamme Mac</button>
+                </div>
+            </div>
+
+            <!-- Naviguateurs du carrousel -->
+            <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+
+            <!-- Puces -->
+            <div class="carousel-dots">
+                <span class="dot active" onclick="setSlide(0)"></span>
+                <span class="dot" onclick="setSlide(1)"></span>
+                <span class="dot" onclick="setSlide(2)"></span>
+            </div>
         </div>
     </section>
 
@@ -52,7 +91,7 @@
         <div class="container search-flex">
             <div class="apple-search-box">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="search-input" placeholder="Rechercher un produit (ex: PS5, iPhone, MacBook...)" aria-label="Rechercher un produit">
+                <input type="text" id="search-input" placeholder="Rechercher par modèle, mémoire, iOS ou version..." aria-label="Rechercher un produit">
             </div>
 
             <div class="apple-select-wrapper">
@@ -111,7 +150,7 @@
                             <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Livraison ultra rapide de mon iPhone 15 Pro Max. Reçu sous 24h !"</p>
+                    <p class="review-text">"iPhone 15 Pro reçu avec iOS 17 préinstallé. La couleur Titane Naturel est splendide !"</p>
                     <span class="review-date">Achat vérifié</span>
                 </div>
             </div>
@@ -164,7 +203,7 @@
                 <button class="close-chat" id="close-chat">&times;</button>
             </div>
             <div class="chatbot-messages" id="chat-messages">
-                <div class="chat-msg bot-msg">Bonjour ! Posez-moi vos questions sur nos produits et la livraison.</div>
+                <div class="chat-msg bot-msg">Bonjour ! Posez-moi vos questions sur la mémoire, l'OS ou les versions de nos produits.</div>
             </div>
             <form class="chatbot-input-area" id="chat-form">
                 <input type="text" id="chat-input" placeholder="Posez votre question..." required>
@@ -253,6 +292,39 @@
         let allProducts = [];
         let currentCategory = 'all';
         let cart = [];
+        let currentSlide = 0;
+
+        // Logique Carrousel Hero
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (dots[i]) dots[i].classList.remove('active');
+            });
+
+            slides[currentSlide].classList.add('active');
+            if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            currentSlide += step;
+            showSlide(currentSlide);
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        // Auto-Play Carrousel toutes les 5s
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
 
         async function fetchProducts() {
             try {
@@ -278,7 +350,9 @@
             let filtered = allProducts.filter(product => {
                 const matchCategory = (currentCategory === 'all' || product.category === currentCategory);
                 const matchSearch = product.title.toLowerCase().includes(searchTerm) || 
-                                    product.description.toLowerCase().includes(searchTerm);
+                                    product.description.toLowerCase().includes(searchTerm) ||
+                                    (product.os && product.os.toLowerCase().includes(searchTerm)) ||
+                                    (product.storage && product.storage.toLowerCase().includes(searchTerm));
                 return matchCategory && matchSearch;
             });
 
@@ -300,22 +374,42 @@
             }
 
             noResultsElem.classList.add('hidden');
-            container.innerHTML = products.map((product, index) => `
+            container.innerHTML = products.map((product, index) => {
+                // Génération des couleurs sous forme de pastilles visuelles
+                const colorsHTML = product.colors ? product.colors.map(c => `
+                    <span class="color-dot" style="background-color: ${c.hex};" title="${c.name}"></span>
+                `).join('') : '';
+
+                return `
                 <article class="apple-card" style="animation-delay: ${Math.min(index * 0.03, 0.3)}s">
                     <div class="card-img-box">
                         <img src="${product.image}" alt="${product.title}" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <span class="card-category">${product.category}</span>
+                        <div class="card-header-flex">
+                            <span class="card-category">${product.category}</span>
+                            ${product.os ? `<span class="card-os-badge">${product.os}</span>` : ''}
+                        </div>
                         <h3 class="card-title">${product.title}</h3>
+                        
+                        <!-- Informations Techniques (Mémoire / OS) -->
+                        <div class="specs-box">
+                            ${product.storage ? `<span class="spec-tag">💾 ${product.storage}</span>` : ''}
+                            ${product.ram ? `<span class="spec-tag">⚡ ${product.ram}</span>` : ''}
+                        </div>
+
                         <p class="card-desc">${product.description}</p>
+                        
+                        <!-- Pastilles de Couleurs -->
+                        ${colorsHTML ? `<div class="color-selection"><span>Couleurs :</span> <div class="dots-row">${colorsHTML}</div></div>` : ''}
+
                         <div class="card-bottom">
                             <span class="card-price">${product.price} €</span>
                             <button class="btn-apple-buy" onclick="addToCart(${product.id})">Acheter</button>
                         </div>
                     </div>
                 </article>
-            `).join('');
+            `}).join('');
         }
 
         function resetFilters() {
