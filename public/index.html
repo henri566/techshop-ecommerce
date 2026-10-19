@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez le Store officiel High-Tech & Gaming : PS5, Nintendo Switch, iPhones, MacBooks, Tablettes et accessoires d'exception.">
+    <meta name="description" content="Découvrez TechStore : La destination officielle High-Tech & Gaming pour PS5, iPhones, MacBooks, consoles et audio haute fidélité.">
     <title>TechStore — Le meilleur du High-Tech & Gaming</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation Header -->
     <header class="apple-nav">
         <div class="container nav-container">
             <a href="/" class="nav-brand">
@@ -39,10 +39,9 @@
         </div>
     </header>
 
-    <!-- CARROUSEL / BANNIÈRE IMMERSIVE (HERO SLIDER) -->
+    <!-- BANNIÈRE CARROUSEL IMMERSIVE -->
     <section class="hero-carousel-section">
         <div class="carousel-container" id="hero-slider">
-            <!-- Slide 1 -->
             <div class="carousel-slide active">
                 <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1600&auto=format&fit=crop" alt="iPhone 15 Pro Max">
                 <div class="slide-caption">
@@ -52,17 +51,15 @@
                     <button class="btn-slide" onclick="filterByCategory('Téléphones')">Découvrir les modèles</button>
                 </div>
             </div>
-            <!-- Slide 2 -->
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=1600&auto=format&fit=crop" alt="PlayStation 5 Slim">
                 <div class="slide-caption">
                     <span class="slide-badge">Gaming Next-Gen</span>
-                    <h2>PlayStation 5 Slim & Pro</h2>
-                    <p>Graphismes 4K, Ray Tracing et stockage SSD haute vitesse de 1 To / 2 To.</p>
+                    <h2>PlayStation 5 Slim</h2>
+                    <p>Graphismes 4K, Ray Tracing et stockage SSD haute vitesse 1 To.</p>
                     <button class="btn-slide" onclick="filterByCategory('Consoles')">Voir les consoles</button>
                 </div>
             </div>
-            <!-- Slide 3 -->
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&auto=format&fit=crop" alt="MacBook Pro M3">
                 <div class="slide-caption">
@@ -73,15 +70,45 @@
                 </div>
             </div>
 
-            <!-- Contrôles du carrousel -->
             <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
 
-            <!-- Puces -->
             <div class="carousel-dots">
                 <span class="dot active" onclick="setSlide(0)"></span>
                 <span class="dot" onclick="setSlide(1)"></span>
                 <span class="dot" onclick="setSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION À PROPOS DU SITE -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-card">
+                <div class="about-header">
+                    <span class="about-badge">Notre Engagement</span>
+                    <h2>À Propos de TechStore</h2>
+                </div>
+                <p class="about-text">
+                    Bienvenue sur <strong>TechStore</strong>, votre plateforme e-commerce de référence dédiée à l'univers du High-Tech, du Gaming et de l'informatique professionnelle. Notre mission est de vous offrir une sélection rigoureuse de 50 produits emblématiques, certifiés d'origine et garantis par les fabricants officiels (Apple, Sony, Microsoft, Samsung, ASUS).
+                </p>
+                <div class="about-features-grid">
+                    <div class="about-feature">
+                        <div class="feature-icon">🛡️</div>
+                        <h4>100% Produits Authentiques</h4>
+                        <p>Matériel neuf, scellé sous boîte avec garantie constructeur officielle.</p>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon">🚀</div>
+                        <h4>Livraison Express & Offerte</h4>
+                        <p>Expédition gratuite dès 50 € d'achat sous 24h à 48h avec suivi en direct.</p>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon">💳</div>
+                        <h4>Paiement Flexible</h4>
+                        <p>Réglez en toute sécurité via Mobile Money (Mvola, Orange, Airtel), CB ou Virement.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -120,11 +147,17 @@
             <h2 class="section-title">Questions fréquentes (FAQ)</h2>
             <div class="faq-list">
                 <details class="faq-item">
-                    <summary class="faq-question">Quels sont les délais et frais de livraison ?</summary>
+                    <summary class="faq-question">
+                        <span>Quels sont les délais et frais de livraison ?</span>
+                        <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
                     <p class="faq-answer">La livraison est offerte dès 50 € d'achat. Expédition sous 24h à 48h ouvrées avec suivi.</p>
                 </details>
                 <details class="faq-item">
-                    <summary class="faq-question">Comment régler via Mobile Money, PayPal ou Virement ?</summary>
+                    <summary class="faq-question">
+                        <span>Comment régler via Mobile Money, PayPal ou Virement ?</span>
+                        <svg class="faq-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </summary>
                     <p class="faq-answer">Choisissez simplement Mobile Money (Mvola, Orange Money, Airtel Money), Carte/PayPal ou Virement lors de la validation dans votre sac.</p>
                 </details>
             </div>
@@ -190,7 +223,7 @@
                 <button class="close-chat" id="close-chat">&times;</button>
             </div>
             <div class="chatbot-messages" id="chat-messages">
-                <div class="chat-msg bot-msg">Bonjour ! Posez-moi vos questions sur la mémoire, l'OS ou les versions de nos produits.</div>
+                <div class="chat-msg bot-msg">Bonjour ! Posez-moi vos questions sur nos 50 produits High-Tech.</div>
             </div>
             <form class="chatbot-input-area" id="chat-form">
                 <input type="text" id="chat-input" placeholder="Posez votre question..." required>
@@ -211,7 +244,7 @@
             </div>
             
             <div class="payment-options-box">
-                <label class="payment-label">Mode de paiement :</label>
+                <label class="payment-label">Choisissez votre mode de paiement :</label>
                 <div class="payment-grid">
                     <label class="payment-card">
                         <input type="radio" name="payment_method" value="mobile_money" checked onclick="togglePaymentForm('mobile_money')">
@@ -250,7 +283,7 @@
             <div class="footer-contact">
                 <h4>Contactez-nous</h4>
                 <p>📧 Email : <a href="mailto:clhenri153@gmail.com">clhenri153@gmail.com</a></p>
-                <p>📞 WhatsApp : <a href="https://wa.me/261389983371" target="_blank">+261 38 99 833 71</a></p>
+                <p>📞 WhatsApp / Tel : <a href="https://wa.me/261389983371" target="_blank">+261 38 99 833 71</a></p>
             </div>
             <p>Copyright &copy; 2026 TechStore Inc. Tous droits réservés.</p>
         </div>
@@ -286,7 +319,7 @@
                 const response = await fetch('/api/products');
                 allProducts = await response.json();
                 applyFilters();
-            } catch (error) { console.error("Erreur de chargement des produits:", error); }
+            } catch (error) { console.error(error); }
         }
 
         function filterByCategory(cat, elem) {
@@ -388,13 +421,9 @@
             if (!text) return;
             appendMsg(text, 'user-msg');
             document.getElementById('chat-input').value = '';
-            try {
-                const res = await fetch('/api/chatbot', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ message: text }) });
-                const data = await res.json();
-                setTimeout(() => appendMsg(data.response, 'bot-msg'), 300);
-            } catch(e) {
-                appendMsg("Erreur de connexion.", 'bot-msg');
-            }
+            const res = await fetch('/api/chatbot', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ message: text }) });
+            const data = await res.json();
+            setTimeout(() => appendMsg(data.response, 'bot-msg'), 300);
         });
 
         function appendMsg(msg, cls) {
@@ -432,7 +461,7 @@
 
         function checkout() {
             if (cart.length === 0) return alert("Votre sac est vide !");
-            alert("Commande validée avec succès !");
+            alert("Commande transmise avec succès !");
             cart = [];
             updateCartUI();
             document.getElementById('cart-modal').classList.remove('active');
